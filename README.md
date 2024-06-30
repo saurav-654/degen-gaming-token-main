@@ -1,76 +1,119 @@
-# Degen Gaming Token
 
-Solidity program creates  ERC20 tokens, which can be minted by contract owners. These tokens can be used for rewards, transfer, balance checking, and burning when not needed in the in-game store.
+# DegenToken README
 
-# Description
+## Overview
 
-This program is a simple smart contract written in Solidity, a programming language used for Ethereum blockchain development. It imports the 'ERC20' and 'Ownable' contracts from 'OpenZepplin', and uses the ERC20 constructor to create tokens. The "mint()" function creates tokens, while the "burnTokens()" function destroys a specified amount. The "decimals()" and "getBalance()" functions return token decimals and account balances. The "storeItems" state variable lists available items, and the "redeemRewards()" function allows players to redeem rewards by exchanging them for tokens. The "transfer()" function transfers tokens to another player.
+**DegenToken (DGT)** is an ERC20 token contract deployed on the Avalanche network. It serves as the main currency for the Degen gaming ecosystem, allowing users to mint, burn, transfer tokens, and redeem them for exclusive in-game items.
 
-## Getting started
+## Contract Details
 
-1. Clone the repository:
-```bash
-git clone <https://github.com/gks2022004/degen-gaming-token.git>
+- **Token Name**: Degen Gaming Token
+- **Token Symbol**: DGT
+- **Decimals**: 0 (1 token equals 1 unit, no fractional tokens)
+- **Network**: Avalanche
+
+## Features
+
+- **Minting**: Only the contract owner can mint new tokens.
+- **Burning**: Users can burn their own tokens to remove them from circulation.
+- **Transferring**: Users can transfer tokens to others.
+- **Balance Checking**: Users can check their own token balance.
+- **Item Redemption**: Users can redeem tokens for special items in the Degen gaming store.
+
+
+
+## Setup Instructions
+
+1. **Prerequisites**: Ensure you have the following installed:
+   - [Node.js](https://nodejs.org/)
+   - [npm](https://www.npmjs.com/)
+   - [Hardhat](https://hardhat.org/)
+
+2. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/your-repo/DegenToken.git
+   cd DegenToken
+   ```
+
+3. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
+
+4. **Compile the Contract**:
+   ```bash
+   npx hardhat compile
+   ```
+
+5. **Deploy the Contract**:
+   - Create a `.env` file and add your private key and RPC URL for the Avalanche network.
+   - Deploy the contract using Hardhat.
+   ```bash
+   npx hardhat run scripts/deploy.js --network avalanche
+   ```
+
+6. **Verify the Deployment**:
+   - Check the Avalanche Explorer to ensure your contract is deployed and verify it if required.
+
+## Usage Examples
+
+### Minting Tokens
+
+To mint tokens, call the `mint` function. Only the owner can execute this.
+
+```solidity
+function mint(address to, uint256 amount) public onlyOwner
 ```
-3. Install the dependencies :
- ```bash  
-cd  dengen-gaming-token
-npm i
+
+**Example**:
+
+```js
+await degenToken.mint("0xRecipientAddress", 100);
 ```
 
-3. Install the Openzepplin contracts:
-``` bash   
-npm install @openzeppelin/contracts
+### Burning Tokens
+
+Users can burn their tokens using the `burnTokens` function.
+
+```solidity
+function burnTokens(uint amount) public
 ```
-4. Open two additional terminals in your VS code.
-In the second terminal type: `npx hardhat node`.
 
-Before running the script make sure you have enough test avax in your metamask wallet. If not go to: https://faucet.avax.network/
 
-In the third terminal, type: `npx hardhat run scripts/main.js --network fuji`
 
-Can verify by typing: `npx hardhat verify (token address) --network fuji`
+### Transferring Tokens
 
-To interact with various fucntions, use Remix, an online Solidity IDE. To get started, go to the Remix website at https://remix.ethereum.org/. But first, connect Remix and your local file system: cd to your project and install remixd package:
-``` bash
-npm install -g @remix-project/remixd
+Transfer tokens to another address with the `transfer` function.
+
+```solidity
+function transfer(address recipient, uint256 amount) public override returns (bool)
 ```
-Check if installed and then run:
-``` bash
-remixd --version
-remixd
+
+
+
+### Checking Balance
+
+Check your balance using the `getBalance` function.
+
+```solidity
+function getBalance() external view returns (uint256)
 ```
-Now open the Remix website, click on default workspace and change it to "connect with localhost". Compile your contract. Then go to deploy section and change environment to "Injected Provider". This will help you to connect your metamask wallet. Click on deploy to deploy the contract. Now, you can use the various functions to interact with the contract and mint, burn and transfer your tokens as well as redeem rewards.
 
-### Transcation on snowtrace
 
-If you want to check your transactions, then copy the address on which the contract is deployed and paste it on https://testnet.snowtrace.io/ .
-This will show the transcations like mint, deployed,burn etc. 
 
-## Technologies Used
-- Remix 
-- MetaMask
-- ethers.js 
-- Hardhat 
+### Redeeming Tokens for Items
+
+Redeem tokens for items using the `redeemTokens` function.
+
+```solidity
+function redeemTokens(uint8 num) external returns (string memory)
+```
+
+
+
 
 
 ## License
 
+This project is licensed under the MIT License. See the `LICENSE` file for more information.
 
-                                                          Apache License
-                                                     Version 2.0, January 2004
-                                                   http://www.apache.org/licenses/        
-
-
-
-
-
-
-
-
-
-
-
-
-
-                              
