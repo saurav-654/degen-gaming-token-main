@@ -1,5 +1,5 @@
 
-# DegenToken README
+# DegenToken 
 
 ## Overview
 
@@ -110,6 +110,9 @@ function redeemTokens(uint8 num) external returns (string memory)
 ```
 
 
+
+## Snowtrace Output
+![image](https://github.com/user-attachments/assets/1ab082a3-f062-49cd-bbc2-bb6a71a51ae5)
 
 
 
