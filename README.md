@@ -89,7 +89,11 @@ Transfer tokens to another address with the `transfer` function.
 function transfer(address recipient, uint256 amount) public override returns (bool)
 ```
 
+### Event tokensredeemed
+`event TokensRedeemed(address indexed user, uint8 itemNumber, uint256 cost, string item, string message);`
 
+
+emit TokensRedeemed(...) emits an event that logs the details of each token redemption transaction, including the user's address, the item redeemed, the cost, and a success message. This facilitates off-chain tracking and monitoring of redemptions.
 
 ### Checking Balance
 
@@ -112,7 +116,8 @@ function redeemTokens(uint8 num) external returns (string memory)
 
 
 ## Snowtrace Output
-![image](https://github.com/user-attachments/assets/1ab082a3-f062-49cd-bbc2-bb6a71a51ae5)
+![image](https://github.com/user-attachments/assets/91f66802-fa36-4162-b9d6-b948ed6060cf)
+
 
 
 
