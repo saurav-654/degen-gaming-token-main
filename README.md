@@ -103,6 +103,12 @@ Check your balance using the `getBalance` function.
 function getBalance() external view returns (uint256)
 ```
 
+### function getRedeemedTokens
+The `getRedeemedTokens` function provides a way to view the items that a specific wallet has redeemed.
+```solidity
+ function getRedeemedTokens(address wallet) external view returns (string memory)
+```
+
 
 
 ### Redeeming Tokens for Items
